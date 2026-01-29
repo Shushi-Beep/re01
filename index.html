@@ -1,42 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>这是第一个网站</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex 布局</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #eee;
+        }
+
+        /* * {
+            border: 1px solid black;
+        } */
+
+        .flex {
+            display: flex;
+        }
+
+        .BaiSe {
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        }
+
+        .flex1 {
+            flex: 1;
+        }
+
+        .column {
+            flex-direction: column;
+        }
+
+        .mg8 {
+            margin-right: 8px;
+            margin-bottom: 8px;
+            margin-left: 8px;
+        }
+
+        .mgr8 {
+            margin-right: 8px;
+        }
+
+        .mgt8 {
+            margin-top: 8px;
+        }
+
+        .daoHang {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgb(174, 171, 171);
+            font-size: 14px;
+            color: #666;
+        }
+
+        /*屏幕小于600px 移动端适配*/
+        @media(max-width:600px) {
+            .ceBian {
+                display: none;
+            }
+
+            .neiRong {
+                flex-direction: column;
+            }
+
+            .shuJuQu {
+                flex-direction: column;
+            }
+
+            .youQu {
+                margin-left: 8px;
+            }
+
+            .shuJu {
+                margin: 0 0 8px;
+                flex: auto;
+            }
+
+        }
+    </style>
 </head>
 
-<body>
-    <div style="
-        background-color:#f1f1f1 ;
-        text-align:center;
-        padding: 40px;
-        ">
-        <img src="C:/Users/27247/Desktop/picture/logo.png" alt="校徽" width="80px" height="80px" />
+<body class="flex">
+    <!-- 侧边栏 -->
+    <div style="width: 200px;z-index: 2;" class="BaiSe ceBian">
+        <!-- 头像栏 -->
+        <div style="padding: 10px;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #999;
+        " class="flex">
+            <img src="./头像.jpg" height="40px" width="40px" alt="头像">
+            <div style="margin-left: 10px;font-family: Forte;">Shushi-Beep</div>
+        </div>
+        <!-- 导航栏 -->
+        <div class="flex1">
+            <div class="daoHang">导航</div>
+            <div class="daoHang">导航</div>
+            <div class="daoHang">导航</div>
+            <div class="daoHang">导航</div>
+            <div class="daoHang">导航</div>
+        </div>
     </div>
-    <div style="
-    max-width:700px;
-    margin:30px auto;
-    padding:15px;
-    line-height:1.7;
-    color:red;
-    ">
-        <p>首先这是一句话</p>
-        <p>其次这是一句话</p>
-        <p>？</p>
-        <p>哦哦哦、</p>
-        <p>222</p>
-        <p>hhhh</p>
-        <p>这是第一天学习</p>
-    </div>
-    <div style="
-        background-color:#f1f1f1 ;
-        text-align:center;
-        padding: 40px;
-        font-size: 12px;
-        ">
-        <a href="https://www.baidu.com/">百度</a>
+    <!-- 主界面 -->
+    <div class="flex1 flex column">
+        <!-- 头部栏 -->
+        <div style="height: 60px;z-index: 1;margin-left: 8px;margin-bottom: 8px;" class="BaiSe"></div>
+        <!-- 内容区 -->
+        <div class="flex1 flex neiRong" style="overflow: auto;">
+            <!-- 左区 -->
+            <div style="flex:3" class="flex column mg8">
+                <!-- 数据区 -->
+                <div class="flex shuJuQu">
+                    <!-- 数据块 -->
+                    <div style="height: 100px;flex:1" class="shuJu BaiSe mgr8"></div>
+                    <div style="height: 100px;flex:1" class="shuJu BaiSe mgr8"></div>
+                    <div style="height: 100px;flex:1" class="shuJu BaiSe mgr8"></div>
+                    <div style="height: 100px;flex:1" class="shuJu BaiSe"></div>
+                </div>
+                <!-- 列表区 -->
+                <div class="flex column">
+                    <!-- 列表项 -->
+                    <div style="height:160px;" class="BaiSe mgt8"></div>
+                    <div style="height:160px;" class="BaiSe mgt8"></div>
+                    <div style="height:160px;" class="BaiSe mgt8"></div>
+                    <div style="height:160px;" class="BaiSe mgt8"></div>
+                    <div style="height:160px;" class="BaiSe mgt8"></div>
+                    <div style="height:160px;" class="BaiSe mgt8"></div>
+                </div>
+            </div>
+            <!-- 右区 -->
+            <div style="flex:1" class="flex column mgr8 youQu">
+                <!-- 提示区 -->
+                <div style="height:150px;" class="BaiSe"></div>
+                <!-- 消息区 -->
+                <div style="height:300px;" class="BaiSe mgt8"></div>
+            </div>
+        </div>
     </div>
 </body>
 
